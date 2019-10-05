@@ -1,0 +1,11 @@
+mspatext = text* EOF
+
+text = space plaintext tag newline#
+
+plaintext = r'.*'
+
+tag = '<' space option (space ',' option)* space ':' text  '>'
+
+option = r'\w+'
+
+space = ' '*
