@@ -17,4 +17,4 @@ def parse(text):
 
 
 def generateDict(text):
-    return visit_parse_tree(text, visitor(src=text))
+    return visit_parse_tree(parse(text), visitor(src=text))
