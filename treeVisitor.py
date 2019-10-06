@@ -48,7 +48,7 @@ class visitor(PTNodeVisitor):
         return {
             'type': 'tag',
             'settings': children.tagOptions[0],
-            'text': children.text,
+            'content': children.text,
         }
 
     def visit_text(self, node, children):
