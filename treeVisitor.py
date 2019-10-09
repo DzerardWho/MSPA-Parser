@@ -51,7 +51,7 @@ class Visitor(PTNodeVisitor):
         return {
             'settings': {},
             'type': 'def',
-            'name': children.arg[0],
+            'name': children.arg[0].strip(),
             'content': children.tagOptions[0],
         }
     
