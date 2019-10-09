@@ -23,7 +23,7 @@ def endTag():
 
 
 def tag():
-    return beginTag, tagOptions, ':', text, endTag
+    return beginTag, tagOptions, ar.Optional(':', text), endTag
 
 
 def defTag():
