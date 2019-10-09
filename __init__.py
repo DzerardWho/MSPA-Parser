@@ -1,6 +1,6 @@
 from arpeggio import ParserPython, visit_parse_tree
 from .parserRules import mspaText
-from .treeVisitor import visitor
+from .treeVisitor import Visitor
 
 
 def parse(text):
@@ -17,4 +17,4 @@ def parse(text):
 
 
 def generateDict(text):
-    return visit_parse_tree(parse(text), visitor(src=text))
+    return visit_parse_tree(parse(text), Visitor(src=text))

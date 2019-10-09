@@ -14,10 +14,6 @@ def HTMLText():
     return ar.Optional(_(r'.*?(?:\/|\\)>'))
 
 
-def defTagText():
-    return _(r'(((?:\\|/)(?:<|>))|([^<>]))+')
-
-
 def beginTag():
     return _(r'(?<!\\|/)<')
 
@@ -32,16 +28,12 @@ def tag():
 
 def defTag():
     return (beginTag, space, _(r'def', ignore_case=True),
-            space, arg, ':', defTagText, endTag)
+            space, arg, ':', tagOptions, endTag)
 
 
 def HTMLTag():
     return (beginTag, space, _(r'html', ignore_case=True), space,
             ':', HTMLText, _(r'(?:\\|/)>'))
-
-
-def macro():
-    return _(r'#\w+')
 
 
 def params():
@@ -53,7 +45,7 @@ def paramsWithArgs():
 
 
 def classes():
-    return _(r'\w+')
+    return _(r'#?\w+')
 
 
 def arg():
@@ -61,7 +53,7 @@ def arg():
 
 
 def keyWords():
-    return [paramsWithArgs, macro, classes]
+    return [paramsWithArgs, classes]
 
 
 def tagOptions():
